@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon authserver.js"
+    "start": "nodemon httpserver.js"
   },
   "keywords": [],
   "author": "",
