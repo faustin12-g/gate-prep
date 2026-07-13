@@ -27,7 +27,13 @@ app.post('/signup', (req, res)=>{
     writeUsers(users)
     res.status(201).json({message: 'User Created!'})
 })
-
+app.post('/login', (req, res)=>{
+    const users = readUsers()
+    const {username, password} = req.body
+    const match = users.find(u=>u.username === username && u.password === password)
+    if(match) res.status(200).send({message: 'logged in'})
+    res.status(200).send({message: 'username or email is invalid!'})
+})
 app.listen(3000, ()=>{
     console.log('server is running on this port')
 })
