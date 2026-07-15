@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon httpserver.js"
+    "start": "nodemon todoServer.js"
   },
   "keywords": [],
   "author": "",
