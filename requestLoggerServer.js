@@ -1,31 +1,27 @@
 const express = require('express')
+
 const app = express()
 
-function requestLogger(req, res, next)
+function reqLogger(req, res, next)
 {
     const start = Date.now()
-
-    res.on('finish',()=>{
+    res.on('finish', ()=>{
         const duration = Date.now() - start
         const timestamp = new Date().toISOString()
-        console.log(`[${timestamp} ${req.method} ${req.url} ${'-'} ${duration}ms]`)
+        console.log([`${timestamp} ${req.method} ${req.url} - ${duration}ms`])
     })
     next()
 }
 
-app.use(requestLogger)
+app.use(reqLogger)
 
-app.get('/',()=>{
-    res.json({message: 'Welcome to this app'})
+app.get('/',(req, res)=>{
+    res.json({message: 'welcome'})
 })
 
-app.get('/users', (req, res)=>{
-    res.json({users: ['Alice', 'Bob', 'Charlie']})
-})
+app.get()
 
 
-
-const PORT = 3000
-app.listen(PORT,()=>{
-    console.log('app listeninng on', PORT)
+app.listen(3000, ()=>{
+    console.log('listening on port')
 })
