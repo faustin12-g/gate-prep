@@ -18,7 +18,6 @@ function writeUsers(users)
     fs.writeFileSync(AUTH_FILE, JSON.stringify(users, null, 2))
 }
 
-
 app.post('/signup', (req, res)=>{
     const { username, password } = req.body
     const users = readUsers()

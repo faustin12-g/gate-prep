@@ -9,7 +9,7 @@ const RATES = {
 
 
 app.get('/convert', (req, res)=>{
-    const {amount, currency} = req.query
+    const { amount, currency } = req.query
 
     if(amount==='undefined' || currency==='undefined')
     {
